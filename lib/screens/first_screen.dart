@@ -62,11 +62,25 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 
+  Widget showKunmaeIcon() {
+    return Container(
+      decoration: const BoxDecoration(
+          image:
+              DecorationImage(image: AssetImage("assets/images/kunmae.png"))),
+    );
+  }
+
   Widget showComponents() {
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
-        children: <Widget>[showAppName(), showButton()],
+        children: <Widget>[
+          const SizedBox(
+            height: 400.0,
+          ),
+          showAppName(),
+          showButton()
+        ],
       ),
     );
   }
@@ -77,7 +91,11 @@ class _FirstScreenState extends State<FirstScreen> {
       body: SafeArea(
           child: Center(
               child: Stack(
-        children: <Widget>[showBackground(), showComponents()],
+        children: <Widget>[
+          showBackground(),
+          showKunmaeIcon(),
+          showComponents()
+        ],
       ))),
     );
   }
