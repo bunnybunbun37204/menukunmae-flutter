@@ -1,4 +1,4 @@
-import 'dart:developer';
+import 'dart:developer' as dev;
 
 import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/main_menu.dart';
@@ -43,8 +43,9 @@ class _FirstScreenState extends State<FirstScreen> {
               color: Colors.white, fontSize: 30, fontFamily: "Fridaymeduim"),
         ),
         onPressed: () {
-          Utils.moveToNextScreen(context, const MainMenu()).then((value) =>
-              log("error move to next page", name: "navigator-push"));
+          Utils.moveToNextScreen(context, const MainMenu())
+              .then((value) => dev.log("go next page", name: "navigator-push"))
+              .catchError((err) => dev.log("error", error: err));
         },
         style: style);
   }
