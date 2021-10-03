@@ -1,4 +1,4 @@
-import '../food.dart';
+import '../classes/food.dart';
 
 class Utils {
   static List<Food> searchFoodList(List<Food> foods, List<String> ingredients) {
