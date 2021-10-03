@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/main_menu.dart';
 
 import 'package:menukunmae/tools/utils/utils.dart';
+import 'package:menukunmae/widgets/widgets.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -45,7 +46,8 @@ class _FirstScreenState extends State<FirstScreen> {
         onPressed: () {
           Utils.moveToNextScreen(context, const MainMenu())
               .then((value) => dev.log("go next page", name: "navigator-push"))
-              .catchError((err) => dev.log("error", error: err, name: "navigator-push"));
+              .catchError((err) =>
+                  dev.log("error", error: err, name: "navigator-push"));
         },
         style: style);
   }
@@ -58,11 +60,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   Widget showBackground() {
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/images/bg.png"), fit: BoxFit.cover)),
-    );
+    return AppWidget.backgroundWidget("assets/images/bg.png");
   }
 
   Widget showKunmaeIcon() {
