@@ -65,11 +65,9 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget showComponents() {
     return Center(
       child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            showAppName(), 
-            showButton()],
-        ),
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[showAppName(), showButton()],
+      ),
     );
   }
 
@@ -79,10 +77,7 @@ class _FirstScreenState extends State<FirstScreen> {
       body: SafeArea(
           child: Center(
               child: Stack(
-        children: <Widget>[
-          showBackground(),
-          showComponents()
-        ],
+        children: <Widget>[showBackground(), showComponents()],
       ))),
     );
   }
