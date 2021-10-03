@@ -2,12 +2,12 @@
 
 class Food {
   late final String _food_name, _image, _tutorial;
-  late final List<String> _food_ingredients, _cooking_method;
-  late final double _cals;
+  late final List<dynamic> _food_ingredients, _cooking_method, _food_vol;
+  late final int _cals;
 
   //Constructor
   Food(this._food_name, this._cals, this._food_ingredients,
-      this._cooking_method, this._image, this._tutorial);
+      this._cooking_method, this._image, this._tutorial, this._food_vol);
 
   Food.empty();
 
@@ -22,12 +22,15 @@ class Food {
 
   void setTutorial(String tutorial) => _tutorial = tutorial;
 
-  void setCals(double cals) => _cals = cals;
+  void setCals(int cals) => _cals = cals;
 
-  void setFoodIngredients(List<String> foodIngredients) =>
+  void setFoodIngredients(List<dynamic> foodIngredients) =>
       _food_ingredients = foodIngredients;
 
-  void setCookingMethod(List<String> cookingMethod) =>
+  void setFoodVol(List<dynamic> foodVol) =>
+      _food_vol = foodVol;
+
+  void setCookingMethod(List<dynamic> cookingMethod) =>
       _cooking_method = cookingMethod;
 
   //Getter
@@ -37,17 +40,20 @@ class Food {
 
   String getTutorial() => _tutorial;
 
-  List<String> getIngredients() => _food_ingredients;
+  List<dynamic> getIngredients() => _food_ingredients;
 
-  List<String> getCookingMethod() => _cooking_method;
+  List<dynamic> getVol() => _food_vol;
 
-  double getCals() => _cals;
+  List<dynamic> getCookingMethod() => _cooking_method;
+
+  int getCals() => _cals;
 
   //special
   Map<String, dynamic> toMap() {
     return Map.of({
       "food_name": _food_name,
       "food_ingredients": _food_ingredients,
+      "food_vol":_food_vol,
       "cooking_method": _cooking_method,
       "food_cals": _cals,
       "image": _image,

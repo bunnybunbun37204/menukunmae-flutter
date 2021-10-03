@@ -89,6 +89,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Utils.readJson();
     return Scaffold(
       body: SafeArea(
           child: Center(
