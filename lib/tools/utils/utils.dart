@@ -46,6 +46,9 @@ class Utils {
     Navigator.pop(context);
   }
 
+  /// Read JSON File
+  ///
+  /// author `Bunyawat Naunnak`
   static Future<void> readJson() async {
     final String source = await rootBundle.loadString("assets/data/food.json");
     final dynamic datas = json.decode(source);
