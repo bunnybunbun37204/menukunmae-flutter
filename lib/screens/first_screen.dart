@@ -45,7 +45,7 @@ class _FirstScreenState extends State<FirstScreen> {
         onPressed: () {
           Utils.moveToNextScreen(context, const MainMenu())
               .then((value) => dev.log("go next page", name: "navigator-push"))
-              .catchError((err) => dev.log("error", error: err));
+              .catchError((err) => dev.log("error", error: err, name: "navigator-push"));
         },
         style: style);
   }
