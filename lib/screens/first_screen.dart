@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'dart:developer' as dev;
+import 'package:menukunmae/screens/main_menu.dart';
+
+import 'package:menukunmae/tools/utils/utils.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -38,11 +42,9 @@ class _FirstScreenState extends State<FirstScreen> {
           style: TextStyle(
               color: Colors.white, fontSize: 30, fontFamily: "Fridaymeduim"),
         ),
-        onLongPress: () {
-          dev.log("button long press", name: "test-btn");
-        },
         onPressed: () {
-          dev.log("button press", name: "test-btn");
+          Utils.moveToNextScreen(context, const MainMenu()).then((value) =>
+              log("error move to next page", name: "navigator-push"));
         },
         style: style);
   }
