@@ -21,4 +21,18 @@ class AppWidget {
           image: DecorationImage(image: AssetImage(imagePath), scale: scale)),
     );
   }
+
+  /// Image widget by path [imagePath] and scale [scale]
+  ///
+  /// author `Bunyawat Naunnak`
+  static Widget imageButton({required String imagePath, Function()? onClick, double scale = 1.0}) {
+    return ConstrainedBox(
+      constraints: const BoxConstraints.expand(),
+      child: IconButton(
+        onPressed: onClick,
+        icon: Image.asset(imagePath),
+        padding: const EdgeInsets.all(0.0),
+      ),
+    );
+  }
 }
