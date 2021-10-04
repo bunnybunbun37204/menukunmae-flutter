@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:menukunmae/widgets/widgets.dart';
+import 'package:menukunmae/tools/widgets/widgets.dart';
 
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class MainMenu extends StatefulWidget {
 class _MainMenuState extends State<MainMenu> {
   
   Widget showBackground() {
-    return AppWidget.backgroundWidget("assets/images/bg_2.png");
+    return AppWidget.backgroundWidget(imagePath: "assets/images/bg_2.png");
   }
 
   @override

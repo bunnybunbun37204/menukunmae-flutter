@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/main_menu.dart';
 
 import 'package:menukunmae/tools/utils/utils.dart';
-import 'package:menukunmae/widgets/widgets.dart';
+import 'package:menukunmae/tools/widgets/widgets.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -60,15 +60,12 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   Widget showBackground() {
-    return AppWidget.backgroundWidget("assets/images/bg.png");
+    return AppWidget.backgroundWidget(imagePath: "assets/images/bg.png");
   }
 
   Widget showKunmaeIcon() {
-    return Container(
-      decoration: const BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage("assets/images/kunmae.png"))),
-    );
+    return AppWidget.imageWidget(
+        imagePath: "assets/images/kunmae.png", scale: 3.5);
   }
 
   Widget showComponents() {
