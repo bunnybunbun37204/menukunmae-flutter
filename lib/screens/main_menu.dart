@@ -16,7 +16,7 @@ class _MainMenuState extends State<MainMenu> {
 
   Widget showBtnTest() {
     return AppWidget.imageButton(
-        imagePath: "assets/images/btn_test.png", onClick: _testBtn, scale: 3);
+        imagePath: "assets/images/btn_test.png", onClick: _testBtn, scale: 2.5);
   }
 
   void _testBtn() {
