@@ -39,14 +39,11 @@ class AppWidget {
   }
 
   /// Image widget by path [imagePath] and scale [scale]
-  static Widget imageButton({required String imagePath, Function()? onClick, double scale = 1.0}) {
-    return ConstrainedBox(
-      constraints: const BoxConstraints.expand(),
-      child: IconButton(
-        onPressed: onClick,
-        icon: Image.asset(imagePath, scale: scale,),
-        padding: const EdgeInsets.all(0.0),
-      ),
+  static Widget imageButton(
+      {required String imagePath, Function()? onClick, double scale = 1.0}) {
+    return GestureDetector(
+      onTap: onClick,
+      child: Image.asset(imagePath, scale: scale,),
     );
   }
 }

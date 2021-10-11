@@ -19,6 +19,13 @@ class _MainMenuState extends State<MainMenu> {
         imagePath: "assets/images/btn_test.png", onClick: _testBtn, scale: 2.5);
   }
 
+  Widget showBtnComponent() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 20.0),
+      child: showBtnTest()
+    );
+  }
+
   void _testBtn() {
     dev.log("Click", name: "btn-test");
   }
@@ -27,10 +34,9 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Center(
-              child: Stack(
-        children: <Widget>[showBackground(), showBtnTest()],
-      ))),
+          child: Stack(
+        children: <Widget>[showBackground(), showBtnComponent()],
+      )),
     );
   }
 }
