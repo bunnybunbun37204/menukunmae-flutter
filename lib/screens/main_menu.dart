@@ -14,16 +14,20 @@ class _MainMenuState extends State<MainMenu> {
     return AppWidget.backgroundWidget(imagePath: "assets/images/bg_2.png");
   }
 
-  Widget showBtnTest() {
+  Widget showBtnTest1() {
+    return AppWidget.imageButton(
+        imagePath: "assets/images/btn_test.png", onClick: _testBtn, scale: 2.5);
+  }
+
+  Widget showBtnTest2() {
     return AppWidget.imageButton(
         imagePath: "assets/images/btn_test.png", onClick: _testBtn, scale: 2.5);
   }
 
   Widget showBtnComponent() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.0),
-      child: showBtnTest()
-    );
+        margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+        child: Column(children: <Widget>[Text("Hi"), Text("Hello, Test")]));
   }
 
   void _testBtn() {
