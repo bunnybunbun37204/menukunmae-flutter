@@ -40,10 +40,32 @@ class AppWidget {
 
   /// Image widget by path [imagePath] and scale [scale]
   static Widget imageButton(
-      {required String imagePath, Function()? onClick, double scale = 1.0}) {
-    return GestureDetector(
-      onTap: onClick,
-      child: Image.asset(imagePath, scale: scale,),
+      {required String imagePath, Function()? onClick, double size = 50.0}) {
+    return IconButton(
+      icon: Image.asset(imagePath),
+      iconSize: size,
+      onPressed: onClick,
+      alignment: Alignment.center,
     );
+  }
+
+  static Widget buttonTest(
+      {String buttonMessage = "Press Me", required Function() onClick}) {
+    final ButtonStyle style = ElevatedButton.styleFrom(
+      textStyle: const TextStyle(fontSize: 20),
+      shadowColor: Colors.blueAccent,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+    );
+
+    return ElevatedButton(
+        child: const Text(
+          'Press Me',
+          style: TextStyle(
+              color: Colors.white, fontSize: 30, fontFamily: "Fridaymeduim"),
+        ),
+        onPressed: onClick,
+        style: style);
   }
 }
