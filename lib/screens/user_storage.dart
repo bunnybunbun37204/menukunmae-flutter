@@ -10,6 +10,8 @@ class UserStorage extends StatefulWidget {
 class _UserStorageState extends State<UserStorage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: SafeArea(child: Container()),
+    );
   }
 }
