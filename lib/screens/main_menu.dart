@@ -11,19 +11,8 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMenuState extends State<MainMenu> {
-  late BuildContext _context;
   Widget showBackground() {
     return AppWidget.backgroundWidget(imagePath: "assets/images/bg_2.png");
-  }
-
-  Widget showBtnTest1() {
-    return AppWidget.imageButton(
-        imagePath: "assets/images/btn_test.png", onClick: testBtn, size: 300.0);
-  }
-
-  Widget showBtnTest2() {
-    return AppWidget.imageButton(
-        imagePath: "assets/images/btn_test.png", onClick: testBtn, size: 300.0);
   }
 
   Widget showBtnComponent() {
@@ -33,21 +22,28 @@ class _MainMenuState extends State<MainMenu> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          AppWidget.buttonTest(onClick: testBtn),
-          AppWidget.buttonTest(onClick: testBtn),
-          AppWidget.buttonTest(onClick: testBtn),
+          AppWidget.buttonTest(onClick: _moveToPage1, buttonMessage: "Page 1"),
+          AppWidget.buttonTest(onClick: _moveToPage2, buttonMessage: "Page 2"),
+          AppWidget.buttonTest(onClick: _moveToPage3, buttonMessage: "Page 3"),
         ],
       ),
     );
   }
 
-  void testBtn() {
-    Utils.moveToPreviousScreen(_context);
+  void _moveToPage1() {
+    Utils.moveToNextScreen(context, const MainMenu());
+  }
+
+  void _moveToPage2() {
+    Utils.moveToNextScreen(context, const MainMenu());
+  }
+
+  void _moveToPage3() {
+    Utils.moveToNextScreen(context, const MainMenu());
   }
 
   @override
   Widget build(BuildContext context) {
-    _context = context;
     return Scaffold(
       body: SafeArea(
           child: Stack(

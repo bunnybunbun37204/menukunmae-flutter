@@ -50,19 +50,21 @@ class AppWidget {
   }
 
   static Widget buttonTest(
-      {String buttonMessage = "Press Me", required Function() onClick}) {
+      {String buttonMessage = "Press Me",
+      required Function() onClick,
+      Color color = Colors.blueAccent}) {
     final ButtonStyle style = ElevatedButton.styleFrom(
       textStyle: const TextStyle(fontSize: 20),
-      shadowColor: Colors.blueAccent,
+      shadowColor: color,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
     );
 
     return ElevatedButton(
-        child: const Text(
-          'Press Me',
-          style: TextStyle(
+        child: Text(
+          buttonMessage,
+          style: const TextStyle(
               color: Colors.white, fontSize: 30, fontFamily: "Fridaymeduim"),
         ),
         onPressed: onClick,
