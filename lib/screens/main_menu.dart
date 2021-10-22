@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:menukunmae/screens/user_storage.dart';
 import 'package:menukunmae/tools/utils/utils.dart';
 import 'package:menukunmae/tools/widgets/widgets.dart';
 import 'dart:developer' as dev;
+
+//หน้าเมนู
 
 class MainMenu extends StatefulWidget {
   const MainMenu({Key? key}) : super(key: key);
@@ -31,7 +34,7 @@ class _MainMenuState extends State<MainMenu> {
   }
 
   void _moveToPage1() {
-    Utils.moveToNextScreen(context, const MainMenu());
+    Utils.moveToNextScreen(context, const UserStorage());
   }
 
   void _moveToPage2() {

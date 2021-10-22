@@ -2,9 +2,10 @@ import 'dart:developer' as dev;
 
 import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/main_menu.dart';
-
 import 'package:menukunmae/tools/utils/utils.dart';
 import 'package:menukunmae/tools/widgets/widgets.dart';
+
+//หน้าแรกสุด
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -85,7 +86,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Utils.readJson();
+
     return Scaffold(
       body: SafeArea(
           child: Center(

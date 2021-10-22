@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menukunmae/tools/widgets/autocompletetext.dart';
 
 /*
 MIT License
@@ -69,5 +70,9 @@ class AppWidget {
         ),
         onPressed: onClick,
         style: style);
+  }
+
+  static Widget autoCompleteTextField() {
+    return const AutocompleteTextField();
   }
 }

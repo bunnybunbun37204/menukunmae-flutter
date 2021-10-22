@@ -58,8 +58,8 @@ class Utils {
     Navigator.pop(context);
   }
 
-  /// Read JSON File
-  static Future<void> readJson() async {
+  /// Read JSON File for food
+  static Future<void> readJsonFood() async {
     final String source = await rootBundle.loadString("assets/data/food.json");
     final dynamic datas = json.decode(source);
     final dynamic data = datas["datas"];
@@ -74,6 +74,19 @@ class Utils {
       Food food = Food(foodName, cals, foodIngredients, cookingMethod, image,
           tutorial, foodVol);
       Config.foods.add(food);
+    }
+  }
+
+  /// Read JSON File for ingredients
+
+  static Future<void> readJsonIngredients() async {
+    final String source =
+        await rootBundle.loadString("assets/data/ingredients.json");
+    final dynamic datas = json.decode(source);
+    final List<dynamic> data = datas["ingredients"];
+    for (int i = 0; i < data.length; i++) {
+      final String ingredient = data[i];
+      Config.ingredients.add(ingredient);
     }
   }
 }
