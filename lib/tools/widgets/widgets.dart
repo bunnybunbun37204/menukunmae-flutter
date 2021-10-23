@@ -39,18 +39,8 @@ class AppWidget {
     );
   }
 
-  /// Image widget by path [imagePath] and scale [scale]
-  static Widget imageButton(
-      {required String imagePath, Function()? onClick, double size = 50.0}) {
-    return IconButton(
-      icon: Image.asset(imagePath),
-      iconSize: size,
-      onPressed: onClick,
-      alignment: Alignment.center,
-    );
-  }
-
-  static Widget buttonTest(
+  /// Button widget
+  static Widget buttonApplication(
       {String buttonMessage = "Press Me",
       required Function() onClick,
       Color color = Colors.blueAccent}) {
@@ -72,7 +62,18 @@ class AppWidget {
         style: style);
   }
 
-  static Widget autoCompleteTextField() {
-    return const AutocompleteTextField();
+  /// Autocomplete text field
+  /// 
+  /// `hintText` for create hint
+  static Widget autoCompleteTextField(
+      {String hintText = 'Search Ingredients',
+      double vertical = 20.0,
+      double horizontol = 20.0}) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontol),
+      child: AutocompleteTextField(
+        hintText: hintText,
+      ),
+    );
   }
 }

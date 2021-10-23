@@ -25,9 +25,9 @@ class _MainMenuState extends State<MainMenu> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          AppWidget.buttonTest(onClick: _moveToPage1, buttonMessage: "Page 1"),
-          AppWidget.buttonTest(onClick: _moveToPage2, buttonMessage: "Page 2"),
-          AppWidget.buttonTest(onClick: _moveToPage3, buttonMessage: "Page 3"),
+          AppWidget.buttonApplication(onClick: _moveToPage1, buttonMessage: "Page 1"),
+          AppWidget.buttonApplication(onClick: _moveToPage2, buttonMessage: "Page 2"),
+          AppWidget.buttonApplication(onClick: _moveToPage3, buttonMessage: "Page 3"),
         ],
       ),
     );

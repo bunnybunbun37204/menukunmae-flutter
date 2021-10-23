@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as dev;
 
 import 'package:menukunmae/tools/configs/config.dart';
 
 class AutocompleteTextField extends StatelessWidget {
-  const AutocompleteTextField({Key? key}) : super(key: key);
+  final String hintText;
+
+  const AutocompleteTextField({Key? key, required this.hintText})
+      : super(key: key);
 
   static final List<String> _kOptions = Config.ingredients;
 
@@ -19,8 +21,24 @@ class AutocompleteTextField extends StatelessWidget {
           return option.contains(textEditingValue.text.toLowerCase());
         });
       },
-      onSelected: (String selection) {
-        dev.log('You just selected $selection', name: 'test auto complete');
+      fieldViewBuilder:
+          (context, textEditingController, focusNode, onFieldSubmitted) {
+        return TextField(
+          controller: textEditingController,
+          focusNode: focusNode,
+          onEditingComplete: onFieldSubmitted,
+          decoration: InputDecoration(
+              border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.grey.shade300)),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.grey.shade300)),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide(color: Colors.grey.shade300)),
+              hintText: hintText),
+        );
       },
     );
   }

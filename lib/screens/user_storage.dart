@@ -13,9 +13,13 @@ class _UserStorageState extends State<UserStorage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Center(
-        child: AppWidget.autoCompleteTextField()
-      )),
+      body: SafeArea(child: Column(children: <Widget>[
+        AppWidget.autoCompleteTextField(
+          vertical: 20.0,
+          horizontol: 70.0,
+          hintText: 'ค้นหาเมนู'
+        )
+      ],),),
     );
   }
 }
