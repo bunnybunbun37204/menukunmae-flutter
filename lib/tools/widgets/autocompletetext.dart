@@ -50,6 +50,7 @@ class AutocompleteTextField extends StatelessWidget {
               AppWidget.makeToast(
                   message: "add ingredient $ingredient to user list",
                   context: context);
+              Config.userIngredients.add(ingredient);
             }
           },
         );

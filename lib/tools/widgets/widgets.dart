@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menukunmae/tools/configs/config.dart';
 import 'package:menukunmae/tools/widgets/autocompletetext.dart';
 
 /*
@@ -79,10 +80,41 @@ class AppWidget {
     );
   }
 
+  static Widget listViewWidget(
+      {required List<String> datas,
+      required BuildContext context,
+      void Function()? onTapDelete}) {
+    return Expanded(
+        child: ListView.separated(
+            padding: const EdgeInsets.all(8),
+            itemBuilder: (context, int index) {
+              return ListTile(
+                onTap: (() => {
+                  Config.value = datas[index],
+                      makeToast(
+                          message: datas[index], context: context)
+                    }),
+                title: Text(datas[index]),
+                trailing: Wrap(
+                  children: <Widget>[
+                    IconButton(
+                        onPressed: onTapDelete, icon: const Icon(Icons.delete))
+                  ],
+                ),
+              );
+            },
+            separatorBuilder: (context, int index) {
+              return const Divider();
+            },
+            itemCount: datas.length));
+  }
+
   /// To make toast
   static void makeToast(
       {required String message, required BuildContext context}) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text(message),
+      duration: const Duration(milliseconds: 700),
+    ));
   }
 }
