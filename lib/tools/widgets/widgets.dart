@@ -68,11 +68,13 @@ class AppWidget {
   static Widget autoCompleteTextField(
       {String hintText = 'Search Ingredients',
       double vertical = 20.0,
-      double horizontol = 20.0}) {
+      double horizontol = 20.0,
+      IconData icon = Icons.search}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: vertical, horizontal: horizontol),
       child: AutocompleteTextField(
         hintText: hintText,
+        icon: icon,
       ),
     );
   }

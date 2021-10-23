@@ -4,8 +4,10 @@ import 'package:menukunmae/tools/configs/config.dart';
 
 class AutocompleteTextField extends StatelessWidget {
   final String hintText;
+  final IconData icon;
 
-  const AutocompleteTextField({Key? key, required this.hintText})
+  const AutocompleteTextField(
+      {Key? key, required this.hintText, required this.icon})
       : super(key: key);
 
   static final List<String> _kOptions = Config.ingredients;
@@ -37,7 +39,8 @@ class AutocompleteTextField extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: BorderSide(color: Colors.grey.shade300)),
-              hintText: hintText),
+              hintText: hintText,
+              prefixIcon: Icon(icon)),
         );
       },
     );
