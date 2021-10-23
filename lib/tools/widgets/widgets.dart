@@ -63,7 +63,7 @@ class AppWidget {
   }
 
   /// Autocomplete text field
-  /// 
+  ///
   /// `hintText` for create hint
   static Widget autoCompleteTextField(
       {String hintText = 'Search Ingredients',
@@ -77,5 +77,12 @@ class AppWidget {
         icon: icon,
       ),
     );
+  }
+
+  /// To make toast
+  static void makeToast(
+      {required String message, required BuildContext context}) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
   }
 }

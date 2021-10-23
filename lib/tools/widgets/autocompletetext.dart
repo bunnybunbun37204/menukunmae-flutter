@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:menukunmae/tools/configs/config.dart';
+import 'package:menukunmae/tools/widgets/widgets.dart';
 
 class AutocompleteTextField extends StatelessWidget {
   final String hintText;
@@ -41,6 +42,16 @@ class AutocompleteTextField extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.grey.shade300)),
               hintText: hintText,
               prefixIcon: Icon(icon)),
+          onSubmitted: (String ingredient) {
+            if (!Config.ingredients.contains(ingredient)) {
+              AppWidget.makeToast(
+                  message: "not found this ingredients", context: context);
+            } else {
+              AppWidget.makeToast(
+                  message: "add ingredient $ingredient to user list",
+                  context: context);
+            }
+          },
         );
       },
     );
