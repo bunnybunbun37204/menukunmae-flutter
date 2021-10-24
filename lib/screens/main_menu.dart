@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:menukunmae/screens/cal_screen.dart';
+import 'package:menukunmae/screens/random_screen.dart';
+import 'package:menukunmae/screens/user_storage.dart';
 import 'package:menukunmae/tools/utils/utils.dart';
 import 'package:menukunmae/tools/widgets/widgets.dart';
 import 'dart:developer' as dev;
@@ -12,7 +15,9 @@ class MainMenu extends StatefulWidget {
 
 class _MainMenuState extends State<MainMenu> {
   Widget showBackground() {
-    return AppWidget.backgroundWidget(imagePath: "assets/images/bg_2.png");
+    return Container(
+        child: AppWidget.backgroundWidget(imagePath: "assets/images/menu1.png"),
+        margin: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5));
   }
 
   Widget showBtnComponent() {
@@ -22,7 +27,8 @@ class _MainMenuState extends State<MainMenu> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          AppWidget.buttonTest(onClick: _moveToPage1, buttonMessage: "Page 1"),
+          AppWidget.buttonTest(
+              onClick: _moveToPage1, buttonMessage: "ตู้เย็นของฉัน"),
           AppWidget.buttonTest(onClick: _moveToPage2, buttonMessage: "Page 2"),
           AppWidget.buttonTest(onClick: _moveToPage3, buttonMessage: "Page 3"),
         ],
@@ -31,15 +37,15 @@ class _MainMenuState extends State<MainMenu> {
   }
 
   void _moveToPage1() {
-    Utils.moveToNextScreen(context, const MainMenu());
+    Utils.moveToNextScreen(context, const UserStorage());
   }
 
   void _moveToPage2() {
-    Utils.moveToNextScreen(context, const MainMenu());
+    Utils.moveToNextScreen(context, const Random());
   }
 
   void _moveToPage3() {
-    Utils.moveToNextScreen(context, const MainMenu());
+    Utils.moveToNextScreen(context, const Kcalcal());
   }
 
   @override

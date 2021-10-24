@@ -64,6 +64,12 @@ flutter:
     - assets/images/kunmae.png
     - assets/images/btn_test.png
     - assets/data/food.json
+    - assets/images/bacg1g.png
+    - assets/images/gif1.gif
+    - assets/images/menu1.png
+    - assets/images/userstor.png
+    - assets/images/randomboi.png
+    - assets/images/kcalcal.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

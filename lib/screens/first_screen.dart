@@ -60,12 +60,12 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   Widget showBackground() {
-    return AppWidget.backgroundWidget(imagePath: "assets/images/bg.png");
+    return AppWidget.backgroundWidget(imagePath: "assets/images/bacg1g.png");
   }
 
   Widget showKunmaeIcon() {
     return AppWidget.imageWidget(
-        imagePath: "assets/images/kunmae.png", scale: 3.5);
+        imagePath: "assets/images/gif1.gif", scale: 4);
   }
 
   Widget showComponents() {
@@ -76,8 +76,7 @@ class _FirstScreenState extends State<FirstScreen> {
           const SizedBox(
             height: 400.0,
           ),
-          showAppName(),
-          showButton()
+          showButton(),
         ],
       ),
     );

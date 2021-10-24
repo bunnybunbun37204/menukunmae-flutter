@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:menukunmae/tools/widgets/widgets.dart';
-
-class UserStorage extends StatefulWidget {
-  const UserStorage({Key? key}) : super(key: key);
+class Kcalcal extends StatefulWidget {
+  const Kcalcal({ Key? key }) : super(key: key);
 
   @override
-  _UserStorageState createState() => _UserStorageState();
+  _KcalcalState createState() => _KcalcalState();
 }
 
-class _UserStorageState extends State<UserStorage> {
+class _KcalcalState extends State<Kcalcal> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       body: SafeArea(
           child: Stack(
         children: <Widget>[showBackground() ],
       )),
     );
   }
-  Widget showBackground() {
+ Widget showBackground() {
     return Container(
-        child: AppWidget.backgroundWidget(imagePath: "assets/images/userstor.png"),
+        child: AppWidget.backgroundWidget(imagePath: "assets/images/kcalcal.png"),
         margin: const EdgeInsets.symmetric(vertical: 0.5, horizontal: 0.5));
   }
   
