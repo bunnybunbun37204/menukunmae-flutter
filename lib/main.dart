@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Utils.readJsonFood();
     Utils.readJsonIngredients();
+    Utils.getData(key: "user_ingredients");
     return MaterialApp(
       home: const FirstScreen(),
       theme: ThemeData(fontFamily: "Fridaymeduim"),

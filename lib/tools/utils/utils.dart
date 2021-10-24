@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:menukunmae/tools/configs/config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../classes/food.dart';
 
@@ -87,6 +88,21 @@ class Utils {
     for (int i = 0; i < data.length; i++) {
       final String ingredient = data[i];
       Config.ingredients.add(ingredient);
+    }
+  }
+
+  static void saveData(
+      {required String key, required List<String> value}) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setStringList(key, value);
+  }
+
+  static void getData({required String key}) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    try {
+      Config.userIngredients = sharedPreferences.getStringList(key)!;
+    } catch (e) {
+      Config.userIngredients = [];
     }
   }
 }

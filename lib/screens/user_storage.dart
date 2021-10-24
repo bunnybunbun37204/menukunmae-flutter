@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menukunmae/tools/configs/config.dart';
+import 'package:menukunmae/tools/utils/utils.dart';
 import 'package:menukunmae/tools/widgets/widgets.dart';
 
 // หน้าตู้เย็นของฉัน
@@ -53,6 +54,8 @@ class _UserStorageState extends State<UserStorage> {
                     message: "add ingredient $ingredient to user list",
                     context: context);
                 Config.userIngredients.add(ingredient);
+                Utils.saveData(
+                    key: "user_ingredients", value: Config.userIngredients);
               }
             });
           },
@@ -84,6 +87,9 @@ class _UserStorageState extends State<UserStorage> {
                                         "delete ${Config.userIngredients[index]}",
                                     context: context);
                                 Config.userIngredients.removeAt(index);
+                                Utils.saveData(
+                                    key: "user_ingredients",
+                                    value: Config.userIngredients);
                               })
                             }),
                         icon: Icon(
