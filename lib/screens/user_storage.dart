@@ -11,13 +11,6 @@ class UserStorage extends StatefulWidget {
 }
 
 class _UserStorageState extends State<UserStorage> {
-  void _onTapDelete() {
-    setState(() {
-      Config.userIngredients.remove(Config.value);
-    });
-    AppWidget.makeToast(message: "remove ${Config.value}", context: context);
-  }
-
   Widget searchIngredients() {
     return Autocomplete<String>(
       optionsBuilder: (TextEditingValue textEditingValue) {
@@ -51,6 +44,10 @@ class _UserStorageState extends State<UserStorage> {
               if (!Config.ingredients.contains(ingredient)) {
                 AppWidget.makeToast(
                     message: "not found this ingredients", context: context);
+              } else if (Config.userIngredients.contains(ingredient)) {
+                AppWidget.makeToast(
+                    message: "this is existing ingredients please type others",
+                    context: context);
               } else {
                 AppWidget.makeToast(
                     message: "add ingredient $ingredient to user list",
@@ -64,17 +61,51 @@ class _UserStorageState extends State<UserStorage> {
     );
   }
 
+  Widget listViewWidget() {
+    return Expanded(
+        child: ListView.separated(
+            padding: const EdgeInsets.all(8),
+            itemBuilder: (context, int index) {
+              return ListTile(
+                onTap: (() => {
+                      Config.value = Config.userIngredients[index],
+                      AppWidget.makeToast(
+                          message: Config.userIngredients[index],
+                          context: context)
+                    }),
+                title: Text(Config.userIngredients[index]),
+                trailing: Wrap(
+                  children: <Widget>[
+                    IconButton(
+                        onPressed: (() => {
+                              setState(() {
+                                AppWidget.makeToast(
+                                    message:
+                                        "delete ${Config.userIngredients[index]}",
+                                    context: context);
+                                Config.userIngredients.removeAt(index);
+                              })
+                            }),
+                        icon: Icon(
+                          Icons.delete,
+                          color: Colors.red.shade700,
+                        ))
+                  ],
+                ),
+              );
+            },
+            separatorBuilder: (context, int index) {
+              return const Divider();
+            },
+            itemCount: Config.userIngredients.length));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(children: <Widget>[
-          searchIngredients(),
-          AppWidget.listViewWidget(
-              datas: Config.userIngredients,
-              context: context,
-              onTapDelete: (() => _onTapDelete()))
-        ]),
+        child:
+            Column(children: <Widget>[searchIngredients(), listViewWidget()]),
       ),
     );
   }
