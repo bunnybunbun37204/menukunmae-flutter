@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:menukunmae/tools/configs/config.dart';
+import 'package:menukunmae/tools/widgets/alertdialog.dart';
 import 'package:menukunmae/tools/widgets/autocompletetext.dart';
+import 'package:menukunmae/tools/widgets/button.dart';
 
 /*
 MIT License
@@ -90,9 +92,8 @@ class AppWidget {
             itemBuilder: (context, int index) {
               return ListTile(
                 onTap: (() => {
-                  Config.value = datas[index],
-                      makeToast(
-                          message: datas[index], context: context)
+                      Config.value = datas[index],
+                      makeToast(message: datas[index], context: context)
                     }),
                 title: Text(datas[index]),
                 trailing: Wrap(
@@ -107,6 +108,23 @@ class AppWidget {
               return const Divider();
             },
             itemCount: datas.length));
+  }
+
+  static Widget showPopup(
+      {required String title,
+      required String content,
+      required BuildContext context,
+      required WidgetBuilder builder}) {
+    return MyAlertDialog.show(context: context, builder: builder);
+  }
+
+  static Widget buttonGradient({
+    required Widget widget,
+    required Gradient gradient,
+    required void Function() onPressed,
+  }) {
+    return RaisedGradientButton(
+        child: widget, gradient: gradient, onPressed: onPressed);
   }
 
   /// To make toast

@@ -1,5 +1,3 @@
-import 'dart:developer' as dev;
-
 import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/main_menu.dart';
 import 'package:menukunmae/tools/utils/utils.dart';
@@ -29,34 +27,16 @@ class _FirstScreenState extends State<FirstScreen> {
     );
   }
 
-  Widget buttonTest() {
-    final ButtonStyle style = ElevatedButton.styleFrom(
-      textStyle: const TextStyle(fontSize: 20),
-      shadowColor: Colors.blueAccent,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-    );
-
-    return ElevatedButton(
-        child: const Text(
-          'Press Me',
-          style: TextStyle(
-              color: Colors.white, fontSize: 30, fontFamily: "Fridaymeduim"),
-        ),
-        onPressed: () {
-          Utils.moveToNextScreen(context, const MainMenu())
-              .then((value) => dev.log("go next page", name: "navigator-push"))
-              .catchError((err) =>
-                  dev.log("error", error: err, name: "navigator-push"));
-        },
-        style: style);
-  }
 
   Widget showButton() {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[buttonTest()],
+    return Container(
+      margin: const EdgeInsets.only(left: 70.0, right: 70.0),
+      child: AppWidget.buttonGradient(widget: const Text(
+    'Start!!',
+    style: TextStyle(color: Colors.white, fontFamily: 'Fridaymeduim', fontSize: 30.0),
+  ), gradient: LinearGradient(
+    colors: <Color>[Colors.orange, Colors.red[800]!],
+  ), onPressed: (()=>Utils.moveToNextScreen(context, const MainMenu()))),
     );
   }
 
@@ -66,18 +46,25 @@ class _FirstScreenState extends State<FirstScreen> {
 
   Widget showKunmaeIcon() {
     return AppWidget.imageWidget(
-        imagePath: "assets/images/kunmae.png", scale: 3.5);
+        imagePath: "assets/images/gif1.gif", scale: 3.5);
   }
 
   Widget showComponents() {
     return Center(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           const SizedBox(
-            height: 400.0,
+            height: 205.0,
           ),
-          showAppName(),
+          Image.asset(
+            "assets/images/gif1.gif",
+            height: 150.0,
+            width: 200.0,
+          ),
+          const SizedBox(
+            height: 130.0,
+          ),
           showButton()
         ],
       ),
@@ -86,16 +73,12 @@ class _FirstScreenState extends State<FirstScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: SafeArea(
           child: Center(
               child: Stack(
-        children: <Widget>[
-          showBackground(),
-          showKunmaeIcon(),
-          showComponents()
-        ],
+        alignment: Alignment.center,
+        children: <Widget>[showBackground(), showComponents()],
       ))),
     );
   }

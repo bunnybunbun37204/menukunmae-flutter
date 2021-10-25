@@ -28,18 +28,9 @@ class _UserStorageState extends State<UserStorage> {
           controller: textEditingController,
           focusNode: focusNode,
           onEditingComplete: onFieldSubmitted,
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: Colors.grey.shade300)),
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: Colors.grey.shade300)),
-              enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                  borderSide: BorderSide(color: Colors.grey.shade300)),
-              hintText: "Search menu",
-              prefixIcon: const Icon(Icons.search)),
+          decoration: const InputDecoration(
+            hintText: "Search menu",
+          ),
           onSubmitted: (String ingredient) {
             setState(() {
               if (!Config.ingredients.contains(ingredient)) {
@@ -69,34 +60,37 @@ class _UserStorageState extends State<UserStorage> {
         child: ListView.separated(
             padding: const EdgeInsets.all(8),
             itemBuilder: (context, int index) {
-              return ListTile(
-                onTap: (() => {
-                      Config.value = Config.userIngredients[index],
-                      AppWidget.makeToast(
-                          message: Config.userIngredients[index],
-                          context: context)
-                    }),
-                title: Text(Config.userIngredients[index]),
-                trailing: Wrap(
-                  children: <Widget>[
-                    IconButton(
-                        onPressed: (() => {
-                              setState(() {
-                                AppWidget.makeToast(
-                                    message:
-                                        "delete ${Config.userIngredients[index]}",
-                                    context: context);
-                                Config.userIngredients.removeAt(index);
-                                Utils.saveData(
-                                    key: "user_ingredients",
-                                    value: Config.userIngredients);
-                              })
-                            }),
-                        icon: Icon(
-                          Icons.delete,
-                          color: Colors.red.shade700,
-                        ))
-                  ],
+              return Container(
+                margin: const EdgeInsets.only(left: 120.0, right: 10.0),
+                child: ListTile(
+                  onTap: (() => {
+                        Config.value = Config.userIngredients[index],
+                        AppWidget.makeToast(
+                            message: Config.userIngredients[index],
+                            context: context)
+                      }),
+                  title: Text(Config.userIngredients[index]),
+                  trailing: Wrap(
+                    children: <Widget>[
+                      IconButton(
+                          onPressed: (() => {
+                                setState(() {
+                                  AppWidget.makeToast(
+                                      message:
+                                          "delete ${Config.userIngredients[index]}",
+                                      context: context);
+                                  Config.userIngredients.removeAt(index);
+                                  Utils.saveData(
+                                      key: "user_ingredients",
+                                      value: Config.userIngredients);
+                                })
+                              }),
+                          icon: Icon(
+                            Icons.delete,
+                            color: Colors.red.shade700,
+                          ))
+                    ],
+                  ),
                 ),
               );
             },
@@ -106,13 +100,31 @@ class _UserStorageState extends State<UserStorage> {
             itemCount: Config.userIngredients.length));
   }
 
+  Widget showBackground() {
+    return AppWidget.backgroundWidget(imagePath: 'assets/images/userstor.png');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child:
-            Column(children: <Widget>[searchIngredients(), listViewWidget()]),
-      ),
+          child: Stack(
+        children: <Widget>[
+          showBackground(),
+          Column(
+            children: <Widget>[
+            Container(
+              margin:
+                  const EdgeInsets.only(top: 105.0, left: 120.0, right: 90.0),
+              child: searchIngredients(),
+            ),
+            Container(
+              child: listViewWidget(),
+            )
+          ])
+        ],
+      )),
     );
   }
 }
