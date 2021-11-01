@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menukunmae/screens/calories_calculate.dart';
 import 'package:menukunmae/screens/randomfood_screen.dart';
 import 'package:menukunmae/screens/user_storage.dart';
 import 'package:menukunmae/tools/utils/utils.dart';
@@ -25,7 +26,7 @@ class _MainMenuState extends State<MainMenu> {
       margin: const EdgeInsets.only(left: 100.0, ),
       child: AppWidget.buttonGradient(
           widget: const Text(
-            'ตู้เย็นของฉัน',
+            'My fridge',
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Fridaymeduim',
@@ -43,7 +44,7 @@ class _MainMenuState extends State<MainMenu> {
       margin: const EdgeInsets.only(left: 100.0, ),
       child: AppWidget.buttonGradient(
           widget: const Text(
-            'กินอะไรกันดีนะ',
+            'What should I have',
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Fridaymeduim',
@@ -61,7 +62,7 @@ class _MainMenuState extends State<MainMenu> {
       margin: const EdgeInsets.only(left: 100.0, ),
       child: AppWidget.buttonGradient(
           widget: const Text(
-            'คำนวณแคลอรี',
+            'Calculate calories',
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Fridaymeduim',
@@ -70,7 +71,7 @@ class _MainMenuState extends State<MainMenu> {
           gradient: LinearGradient(
             colors: <Color>[Colors.orange, Colors.red[800]!],
           ),
-          onPressed: (() => Utils.moveToNextScreen(context, const UserStorage()))),
+          onPressed: (() => Utils.moveToNextScreen(context, const CaloriesCalculate()))),
     );
   }
 

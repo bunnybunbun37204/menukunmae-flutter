@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:menukunmae/screens/first_screen.dart';
+import 'package:menukunmae/tools/configs/config.dart';
 import 'package:menukunmae/tools/utils/utils.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     Utils.readJsonFood();
     Utils.readJsonIngredients();
     Utils.getData(key: "user_ingredients");
+    Utils.getVdoId();
     return MaterialApp(
       home: const FirstScreen(),
       theme: ThemeData(fontFamily: "Fridaymeduim"),

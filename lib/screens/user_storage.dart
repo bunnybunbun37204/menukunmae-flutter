@@ -47,6 +47,7 @@ class _UserStorageState extends State<UserStorage> {
                 Config.userIngredients.add(ingredient);
                 Utils.saveData(
                     key: "user_ingredients", value: Config.userIngredients);
+                textEditingController.clear();
               }
             });
           },
@@ -112,8 +113,7 @@ class _UserStorageState extends State<UserStorage> {
           child: Stack(
         children: <Widget>[
           showBackground(),
-          Column(
-            children: <Widget>[
+          Column(children: <Widget>[
             Container(
               margin:
                   const EdgeInsets.only(top: 105.0, left: 120.0, right: 90.0),

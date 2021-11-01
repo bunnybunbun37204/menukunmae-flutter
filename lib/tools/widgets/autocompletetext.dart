@@ -21,7 +21,7 @@ class AutocompleteTextField extends StatelessWidget {
           return const Iterable<String>.empty();
         }
         return _kOptions.where((String option) {
-          return option.contains(textEditingValue.text.toLowerCase());
+          return option.contains(textEditingValue.text);
         });
       },
       fieldViewBuilder:

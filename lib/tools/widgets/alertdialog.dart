@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyAlertDialog extends StatelessWidget {
   final String title;
-  final String content;
+  final Image content;
   final List<Widget> actions;
 
   const MyAlertDialog({
@@ -25,10 +25,10 @@ class MyAlertDialog extends StatelessWidget {
     return AlertDialog(
       title: Text(
         title,
-        style: Theme.of(context).textTheme.bodyText1,
+        style: const TextStyle(fontFamily: 'Fridaymeduim', fontSize: 35.0)
       ),
       actions: actions,
-      content: Text(content, style: Theme.of(context).textTheme.bodyText1),
+      content: content,
     );
   }
 }

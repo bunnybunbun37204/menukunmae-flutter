@@ -105,4 +105,51 @@ class Utils {
       Config.userIngredients = [];
     }
   }
+
+  static void getVdoId() {
+    for (Food food in Config.foods) {
+      Config.vdoId.add(splitVdoLink(food.getTutorial()));
+    }
+  }
+
+  static String splitVdoLink(String link) {
+    final listLink = link.split("=");
+    String id = listLink[1];
+    return id;
+  }
+
+   static double calculate_BMR(String gender, double weight, double height, int age) {
+        double bmr;
+        if (gender == "male") {
+            bmr = 66 + (13.7 * weight) + (5 * height) - (6.8 * age);
+        } else {
+            bmr = 665 + (9.6 * weight) + (1.8 * height) - (4.7 * age);
+        }
+        return bmr;
+    }
+
+    static double calculate_Cals(double bmr, String activity) {
+        switch (activity) {
+            case "Stay still , no exercise action":
+                bmr *= 1.2;
+                break;
+            case "Seldom exercise, 1-3 days per week":
+                bmr *= 1.375;
+                break;
+            case "Exercise sometimes, 3-5 days per week":
+                bmr *= 1.55;
+                break;
+            case "Hardly exercise, 6-7 days per week":
+                bmr *= 1.725;
+                break;
+            case "Always exercise, 2 time everyday":
+                bmr *= 1.9;
+                break;
+            default:
+                bmr *= 1;
+                break;
+        }
+
+        return bmr;
+    }
 }
